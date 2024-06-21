@@ -1,26 +1,48 @@
 import { fetchProfiles, filterProfiles } from './data.js';
 
-let profiles = [];
+let allProfiles = [];
+let displayedProfiles = [];
 
 window.onload = function() {
     fetchProfiles().then(data => {
-        profiles = data;
-        console.log("2", profiles)
+        allProfiles = data;
+        displayedProfiles = getRandomProfiles(allProfiles, 6);
+        updateDisplay(displayedProfiles);
 
         const inputField = document.getElementById('input__search');
         inputField.addEventListener('input', function() {
-            console.log('Evento detectado')
             const searchValue = this.value.toLowerCase();
-            const filteredProfiles = filterProfiles(profiles, searchValue);
-            console.log("3", filteredProfiles);
+            const filteredProfiles = filterProfiles(allProfiles, searchValue);
             updateDisplay(filteredProfiles);
         });
     });
 };
 
 
+
+// window.addEventListener('load', function() {
+//     fetchProfiles().then(profiles => { 
+//         const randomProfiles = getRandomProfiles(profiles, 6); 
+
+        
+//         updateDisplay(randomProfiles);
+//     });
+// });
+
+
+function getRandomProfiles(profiles, count) {
+    
+    for (let i = profiles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [profiles[i], profiles[j]] = [profiles[j], profiles[i]];
+    }
+
+    
+    return profiles.slice(0, count);
+}
+
 function updateDisplay(profiles) {
-    // Get the container element
+    
     const container = document.getElementById('profiles-container');
 
    
