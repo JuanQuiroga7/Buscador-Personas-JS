@@ -1,0 +1,12 @@
+:root{
+    --color-1: #3a57db;
+    --color-2: #293d99;
+    --color-3: #A4AAAD;
+    --color-4: #111111; 
+    --color-5: #FFFFFF;
+    --space-layout-padding-lr: 0px 15px;
+    --space-layout-padding-tb: 5px;
+    --layout__image__width: 100%;
+    --layout__image__height: 350px;
+}
+
