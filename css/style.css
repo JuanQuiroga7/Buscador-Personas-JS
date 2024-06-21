@@ -73,7 +73,7 @@
 .person__details{
     /* background: blue; */
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     /* padding-top: 16px; */
     /* justify-content: space-between; */
